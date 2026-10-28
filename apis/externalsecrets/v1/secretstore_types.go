@@ -198,6 +198,10 @@ type SecretStoreProvider struct {
 	// +optional
 	Scaleway *ScalewayProvider `json:"scaleway,omitempty"`
 
+	// Thalassa configures this store to sync secrets using the Thalassa provider.
+	// +optional
+	Thalassa *ThalassaProvider `json:"thalassa,omitempty"`
+
 	// Doppler configures this store to sync secrets using the Doppler provider
 	// +optional
 	Doppler *DopplerProvider `json:"doppler,omitempty"`

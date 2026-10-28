@@ -61,6 +61,7 @@ replace (
 	github.com/external-secrets/external-secrets/providers/v1/scaleway => ./providers/v1/scaleway
 	github.com/external-secrets/external-secrets/providers/v1/secretserver => ./providers/v1/secretserver
 	github.com/external-secrets/external-secrets/providers/v1/senhasegura => ./providers/v1/senhasegura
+	github.com/external-secrets/external-secrets/providers/v1/thalassa => ./providers/v1/thalassa
 	github.com/external-secrets/external-secrets/providers/v1/vault => ./providers/v1/vault
 	github.com/external-secrets/external-secrets/providers/v1/volcengine => ./providers/v1/volcengine
 	github.com/external-secrets/external-secrets/providers/v1/webhook => ./providers/v1/webhook
@@ -125,6 +126,7 @@ require (
 	github.com/external-secrets/external-secrets/providers/v1/scaleway v0.0.0-20261021124231-db95fe1c087b
 	github.com/external-secrets/external-secrets/providers/v1/secretserver v0.0.0-20261021124231-db95fe1c087b
 	github.com/external-secrets/external-secrets/providers/v1/senhasegura v0.0.0-20261021124231-db95fe1c087b
+	github.com/external-secrets/external-secrets/providers/v1/thalassa v0.0.0-00010101000000-000000000000
 	github.com/external-secrets/external-secrets/providers/v1/vault v0.0.0-20261021124231-db95fe1c087b
 	github.com/external-secrets/external-secrets/providers/v1/volcengine v0.0.0-20261021124231-db95fe1c087b
 	github.com/external-secrets/external-secrets/providers/v1/webhook v0.0.0-20261021124231-db95fe1c087b
@@ -298,6 +300,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.24 // indirect
 	github.com/googleapis/gax-go/v2 v2.27.0 // indirect
 	github.com/gophercloud/gophercloud/v2 v2.15.0 // indirect
+	github.com/gorilla/websocket v1.5.4-0.20250319132907-e064f32e3674 // indirect
 	github.com/grafana/grafana-openapi-client-go v0.0.0-20261015192556-fcf0a80b71e9 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.3.4 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.32.0 // indirect
@@ -373,12 +376,14 @@ require (
 	github.com/sethvargo/go-password v0.4.0 // indirect
 	github.com/shopspring/decimal v1.6.0 // indirect
 	github.com/sirupsen/logrus v1.10.2 // indirect
+	github.com/sony/gobreaker v1.0.0 // indirect
 	github.com/sony/gobreaker/v2 v2.4.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/spiffe/go-spiffe/v2 v2.9.0 // indirect
 	github.com/tetratelabs/wabin v0.0.0-20230304001439-f6f874872834 // indirect
 	github.com/tetratelabs/wazero v1.12.0 // indirect
+	github.com/thalassa-cloud/client-go v0.33.1 // indirect
 	github.com/tidwall/gjson v1.20.0 // indirect
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.2 // indirect

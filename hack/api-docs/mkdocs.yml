@@ -166,6 +166,7 @@ nav:
       - OpenBao: provider/openbao.md
       - Volcengine: provider/volcengine.md
       - ngrok: provider/ngrok.md
+      - Thalassa: provider/thalassa.md
       - Devolutions Server: provider/devolutions-server.md
       - Nebius MysteryBox: provider/nebius-mysterybox.md
   - Examples:

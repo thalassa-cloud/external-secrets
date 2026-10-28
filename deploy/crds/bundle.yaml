@@ -8321,6 +8321,108 @@ spec:
                         - module
                         - url
                       type: object
+                    thalassa:
+                      description: Thalassa configures this store to sync secrets using the Thalassa provider.
+                      properties:
+                        apiUrl:
+                          description: APIURL is the Thalassa API base URL. Defaults to https://api.thalassa.cloud
+                          type: string
+                        auth:
+                          description: Auth configures how the provider authenticates with Thalassa.
+                          maxProperties: 1
+                          minProperties: 1
+                          properties:
+                            accessCredentials:
+                              description: AccessCredentials authenticates with Thalassa access credentials.
+                              properties:
+                                accessKey:
+                                  description: AccessKey is the access key identifier.
+                                  type: string
+                                accessSecretRef:
+                                  description: AccessSecretRef references the access secret.
+                                  properties:
+                                    key:
+                                      description: |-
+                                        A key in the referenced Secret.
+                                        Some instances of this field may be defaulted, in others it may be required.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[-._a-zA-Z0-9]+$
+                                      type: string
+                                    name:
+                                      description: The name of the Secret resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        The namespace of the Secret resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  type: object
+                              required:
+                                - accessKey
+                                - accessSecretRef
+                              type: object
+                            jwt:
+                              description: JWT authenticates by exchanging a Kubernetes ServiceAccount token for a Thalassa access token.
+                              properties:
+                                serviceAccountRef:
+                                  description: ServiceAccountRef specifies the Kubernetes ServiceAccount to use for authentication.
+                                  properties:
+                                    audiences:
+                                      description: |-
+                                        Audience specifies the `aud` claim for the service account token
+                                        Some providers automatically extend the audience field based on well-known annotations for workload
+                                        identity (e.g. IRSA or GCP Workload Identity)
+                                      items:
+                                        type: string
+                                      type: array
+                                    name:
+                                      description: The name of the ServiceAccount resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        Namespace of the resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  required:
+                                    - name
+                                  type: object
+                                thalassaServiceAccountId:
+                                  description: ThalassaServiceAccountID is the ID of the Thalassa service account to impersonate.
+                                  type: string
+                              required:
+                                - thalassaServiceAccountId
+                              type: object
+                          type: object
+                        kmsKeyId:
+                          description: KmsKeyID is the KMS key used when creating secrets via PushSecret.
+                          type: string
+                        organisationId:
+                          description: OrganisationID is the Thalassa organisation ID.
+                          type: string
+                        projectId:
+                          description: ProjectID is an optional Thalassa project scope. If not provided, will use organisation root.
+                          type: string
+                        region:
+                          description: Region where secrets are stored
+                          type: string
+                      required:
+                        - auth
+                        - organisationId
+                        - region
+                      type: object
                     vault:
                       description: Vault configures this store to sync secrets using the HashiCorp Vault provider.
                       properties:
@@ -21997,6 +22099,108 @@ spec:
                         - auth
                         - module
                         - url
+                      type: object
+                    thalassa:
+                      description: Thalassa configures this store to sync secrets using the Thalassa provider.
+                      properties:
+                        apiUrl:
+                          description: APIURL is the Thalassa API base URL. Defaults to https://api.thalassa.cloud
+                          type: string
+                        auth:
+                          description: Auth configures how the provider authenticates with Thalassa.
+                          maxProperties: 1
+                          minProperties: 1
+                          properties:
+                            accessCredentials:
+                              description: AccessCredentials authenticates with Thalassa access credentials.
+                              properties:
+                                accessKey:
+                                  description: AccessKey is the access key identifier.
+                                  type: string
+                                accessSecretRef:
+                                  description: AccessSecretRef references the access secret.
+                                  properties:
+                                    key:
+                                      description: |-
+                                        A key in the referenced Secret.
+                                        Some instances of this field may be defaulted, in others it may be required.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[-._a-zA-Z0-9]+$
+                                      type: string
+                                    name:
+                                      description: The name of the Secret resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        The namespace of the Secret resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  type: object
+                              required:
+                                - accessKey
+                                - accessSecretRef
+                              type: object
+                            jwt:
+                              description: JWT authenticates by exchanging a Kubernetes ServiceAccount token for a Thalassa access token.
+                              properties:
+                                serviceAccountRef:
+                                  description: ServiceAccountRef specifies the Kubernetes ServiceAccount to use for authentication.
+                                  properties:
+                                    audiences:
+                                      description: |-
+                                        Audience specifies the `aud` claim for the service account token
+                                        Some providers automatically extend the audience field based on well-known annotations for workload
+                                        identity (e.g. IRSA or GCP Workload Identity)
+                                      items:
+                                        type: string
+                                      type: array
+                                    name:
+                                      description: The name of the ServiceAccount resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        Namespace of the resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  required:
+                                    - name
+                                  type: object
+                                thalassaServiceAccountId:
+                                  description: ThalassaServiceAccountID is the ID of the Thalassa service account to impersonate.
+                                  type: string
+                              required:
+                                - thalassaServiceAccountId
+                              type: object
+                          type: object
+                        kmsKeyId:
+                          description: KmsKeyID is the KMS key used when creating secrets via PushSecret.
+                          type: string
+                        organisationId:
+                          description: OrganisationID is the Thalassa organisation ID.
+                          type: string
+                        projectId:
+                          description: ProjectID is an optional Thalassa project scope. If not provided, will use organisation root.
+                          type: string
+                        region:
+                          description: Region where secrets are stored
+                          type: string
+                      required:
+                        - auth
+                        - organisationId
+                        - region
                       type: object
                     vault:
                       description: Vault configures this store to sync secrets using the HashiCorp Vault provider.
